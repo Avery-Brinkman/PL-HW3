@@ -12,4 +12,4 @@ populate_list([_|Xs], Elements, NewList) :- append(_, [E|_], Elements), populate
 allLists(Num, Elements, Result) :- ground(Elements), !, length(EmptyList, Num), populate_list(EmptyList, Elements, Result).
 allLists(Num, Elements, Result) :- length(EmptyList, Num), populate_list(EmptyList, [add, subtract, multiply, divide], Result).
 
-combo(Operators, Numbers, Result) :- length(Numbers, L), Len is L - 1, allLists(Len, Operators, PossibleOperations), apply_lr(PossibleOperations, Numbers, Result).
+combo(Operators, Numbers, Result) :- length(Numbers, L), Len is L - 1, allLists(Len, Operators, Operators), apply_lr(Operators, Numbers, Result).
